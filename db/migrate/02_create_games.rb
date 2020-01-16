@@ -5,7 +5,6 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.integer :points
       t.integer :sharks_killed
       t.string :difficulty
-
       t.timestamps
     end
   end

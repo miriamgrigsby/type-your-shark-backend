@@ -12,6 +12,6 @@ class User < ApplicationRecord
     # #     self.houses << house
     # # end
 
-    validates :points, presence: true
-    validates :sharks_killed, presence: true
+    # validates :points, presence: true
+    # validates :sharks_killed, presence: true
 end

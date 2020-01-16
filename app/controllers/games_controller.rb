@@ -1,8 +1,10 @@
 class GamesController < ApplicationController
+    before_action :authenticate, only:[:create]
     before_action :find_game, only: [:show, :update, :destroy]
 
     def index
-        render json: Game.all
+        @games = Game.all
+        render json: @games
     end
     
     def show 
