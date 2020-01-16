@@ -26,5 +26,6 @@ class UsersController < ApplicationController
          else
              render json: {error: "Nice Try"}, status: :unauthorized 
          end
+    end
  
 end
