@@ -12,21 +12,34 @@ class JsonWebToken
 
 end
 class UsersController < ApplicationController
-     # before_action :verify_user, except: [:create, :index]
      before_action :find_user, only: [:update]
 
      def index
          @user = User.all
-         render json: @user
+         render json: @user, include: :games
      end
  
+     def profile
+        authorization_header = request.headers[:authorization]
+        if !authorization_header
+         render status: :unauthorized
+        else
+         token = authorization_header.split(" ")[1]
+         secret_key = Rails.application.secrets.secret_key_base[0]
+         decoded_token = JWT.decode(token, secret_key)
+         user = User.find(decoded_token[0]["user_id"])
+         render json: user 
+        end
+     end
+
      def create
-         @user = User.create(user_params)
-         render json: @user, status: :created
+        @user = User.create(user_params)
+        secret_key = Rails.application.secrets.secret_key_base
+        token = JWT.encode({user_id: @user.id}, secret_key)
+        render json: {token: token, user: @user}
      end
  
      def update
-         # byebug
          header = request.headers["Authorization"]
          token = header.split(" ").last
        
