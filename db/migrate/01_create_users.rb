@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :total_games
       t.string :total_sharks_killed
       t.string :total_points
+      t.string :avg_difficulty
       t.timestamps
     end
   end

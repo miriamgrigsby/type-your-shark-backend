@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2) do
     t.string "total_games"
     t.string "total_sharks_killed"
     t.string "total_points"
+    t.string "avg_difficulty"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

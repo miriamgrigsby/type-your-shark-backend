@@ -12,13 +12,17 @@ class JsonWebToken
 
 end
 class UsersController < ApplicationController
-     before_action :find_user, only: [:update]
+     before_action :find_user, only: [:update, :destroy, :show]
 
      def index
          @user = User.all
          render json: @user, include: :games
      end
  
+     def show
+        render json: @user, include: :games
+     end
+
      def profile
         authorization_header = request.headers[:authorization]
         if !authorization_header
@@ -36,7 +40,14 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         secret_key = Rails.application.secrets.secret_key_base
         token = JWT.encode({user_id: @user.id}, secret_key)
-        render json: {token: token, user: @user}
+        render json: {token: token, user: {
+            user_id: @user.id,  
+            total_games: @user.total_games, 
+            total_sharks_killed: @user.total_sharks_killed,
+            total_points: @user.total_points,
+            password_digest: nil, 
+            avg_difficulty: @user.avg_difficulty
+        }}
      end
  
      def update
@@ -54,6 +65,9 @@ class UsersController < ApplicationController
          end
     end
 
+    def destroy
+        @user.destroy
+    end
 
     private
     def find_user
@@ -61,8 +75,9 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit([:username, :password, :total_games, :total_sharks_killed, :total_points])
+        params.require(:user).permit([:username, :password, :total_games, :total_sharks_killed, :total_points, :avg_difficulty])
     end
  
+    
 end
 
