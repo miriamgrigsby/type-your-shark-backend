@@ -44,7 +44,7 @@ The app front is built with Vanilla JavaScript and jQuery requires the following
 
 Type Your Shark features animations and simple game functionality using plain JavaScript and CSS. Game and user stats  update and delete with optimistic and pessimistic rendering to improve user experience. The app also has full Authentication using JWT and is a Single-Page-App. 
 
-![Screenshot](Screen Shot 2020-01-22 at 4.03.49 PM.png)
+![Screenshot](./Screen Shot 2020-01-22 at 4.03.49 PM.png)
 
 ### Words API
 
