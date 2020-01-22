@@ -11,6 +11,7 @@ class JsonWebToken
     end
 
 end
+
 class UsersController < ApplicationController
      before_action :find_user, only: [:update, :destroy, :show]
 
@@ -54,7 +55,6 @@ class UsersController < ApplicationController
          header = request.headers["Authorization"]
          token = header.split(" ").last
        
-       
          payload = JsonWebToken.decode(token)
  
          if (@user.id == payload["user_id"].to_i)
@@ -70,6 +70,7 @@ class UsersController < ApplicationController
     end
 
     private
+
     def find_user
         @user = User.find(params[:id])
     end
@@ -78,6 +79,5 @@ class UsersController < ApplicationController
         params.require(:user).permit([:username, :password, :total_games, :total_sharks_killed, :total_points, :avg_difficulty])
     end
  
-    
 end
 

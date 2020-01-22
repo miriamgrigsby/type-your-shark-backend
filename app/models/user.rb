@@ -14,15 +14,9 @@ class User < ApplicationRecord
         all_games.map{|game| game.points}.sum
     end 
 
-    # def difficulty
-    #     all_games.map{|game| game.difficulty}
-    # end 
-
     def total_games 
         all_games.length
     end
-
-    
 
     def avg_difficulty 
         gameDifficulty = 0.0
@@ -35,24 +29,19 @@ class User < ApplicationRecord
                 gameDifficulty += 3.0
             end
         end
-
         if gameDifficulty == 0.0
             averageNumber = 1
         else 
             averageNumber = (gameDifficulty / all_games.length.to_f)
         end
-
-        if averageNumber <= 2.0
+        
+        if averageNumber < 2.0
             "easy"
-        elsif averageNumber < 2.5 && averageNumber > 2.0
+        elsif averageNumber < 2.5 && averageNumber >= 2.0
             "medium"
         elsif averageNumber >= 2.5
             "hard"
         end
     end
-
-
-    # validates :username, presence: true
-    # validates :username, uniqueness: true
  
 end

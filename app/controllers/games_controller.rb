@@ -33,6 +33,7 @@ class GamesController < ApplicationController
     end
 
     private 
+    
     def find_game
         @game = Game.find(params[:id])
     end 
