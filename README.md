@@ -69,7 +69,7 @@ Each level varies in difficulty through the following properties:
     
 Sharks begin to swim towards the diver. The objective is type the letters on the white shark. Each letter is checked for correctness and turns green upon meeting this condition. Once the whole word is correct, the shark is removed (no need to press enter), and the next shark turns white. Kill all the sharks on the screen before they reach the diver. Even if time runs out, you must kill all the sharks. 
 
-![Screenshot](level1.png)
+![Screenshot](firstlevel.png)
 
 ### Speed Round (Level 2)
 
