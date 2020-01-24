@@ -75,11 +75,13 @@ Sharks begin to swim towards the diver. The objective is type the letters on the
 
 After completing level 1, the user is brought to a bonus speed round. Type all the words as quickly as you can. Careful, typing the wrong letter decrements your time. Type the whole word correctly and gain a little time. Play until the time runs out, then collect your ruby from the treasure chest to move on. This level cannot be lost.
 
-![Screenshot](level2.png)
+![Screenshot](secondlevel.png)
 
 ### Boss Round (Level 3
 
 Toxic sharks and ghost piranhas alternate and come onto the screen in various quantities depending on difficulty. Toxic sharks are always 4 letters, that when not typed quickly morph. Ghost piranhas are grayed out until they are partially on the screen and have a single character on them. All creatures must be typed correctly before they reach the diver. 25 seconds after the beginning on the level, a boss shark emerges. The boss sends cannonballs concurrently. Type all the cannonballs before they reach the diver to slowly kill the boss. A life bar at the top of the screen indicates the health of the boss. Time is unlimited now. Stay alive, and take down the boss to win the game! 
+
+![Screenshot](thirdlevel.png)
 
 ## Deployment
 
