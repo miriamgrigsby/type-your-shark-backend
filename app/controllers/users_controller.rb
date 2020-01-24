@@ -39,9 +39,8 @@ class UsersController < ApplicationController
 
      def create
         @user = User.create(user_params)
-        # secret_key = Rails.application.secrets.secret_key_base
-        # change secret_key to process.env.SECRET
-        token = JWT.encode({user_id: @user.id}, "secret_key")
+        secret_key = process.env.SECRET_KEY_BASE
+        token = JWT.encode({user_id: @user.id}, secret_key)
         render json: {token: token, user: {
             user_id: @user.id,  
             total_games: @user.total_games, 
