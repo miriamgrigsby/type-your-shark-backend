@@ -76,7 +76,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit([:username, :password, :total_games, :total_sharks_killed, :total_points, :avg_difficulty])
+        params.require(:user).permit([:username, :password, :total_games, :total_sharks_killed, :total_points, :avg_difficulty])
     end
  
 end
