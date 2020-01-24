@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
      def create
         @user = User.create(user_params)
-        secret_key = process.env.SECRET_KEY_BASE
+        secret_key = ENV["SECRET_KEY_BASE"]
         token = JWT.encode({user_id: @user.id}, secret_key)
         render json: {token: token, user: {
             user_id: @user.id,  
