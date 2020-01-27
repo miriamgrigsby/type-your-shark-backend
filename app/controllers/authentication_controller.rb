@@ -11,7 +11,8 @@ class AuthenticationController < ApplicationController
             if !@user.authenticate(password)
                 render json: {error: "Invalid Credentials"}, status: :unauthorized
             else 
-                secret_key = ENV["SECRET_KEY_BASE"]
+                # secret_key = ENV["SECRET_KEY_BASE"]
+                secret_key = Rails.application.secrets.secret_key_base
 
                 token = JWT.encode({user_id: @user.id}, secret_key)
                 render json: {token: token, user: @user}, include: :games
